@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button,Alert } from 'antd';
 import { VscSend } from "react-icons/vsc";
 
 
@@ -16,7 +16,7 @@ const PatientForm: React.FC<PatientFormProps>= ( {onToggle}) => {
     // Get form values
     const data = form.getFieldsValue();
     console.log(data);
-    alert('Form submitted successfully');
+    <Alert message="Form submitted successfully" type="success" />;
   };
 
   return (
