@@ -2,13 +2,16 @@
 
 import React from 'react';
 import { Form, Input, Button } from 'antd';
+import { VscSend } from "react-icons/vsc";
 
 
 const { TextArea } = Input;
+interface PatientFormProps {
+  onToggle: () => void;  
+}
 
-const PatientForm: React.FC = () => {
+const PatientForm: React.FC<PatientFormProps>= ( {onToggle}) => {
   const [form] = Form.useForm();
-
   const handleSubmit = () => {
     // Get form values
     const data = form.getFieldsValue();
@@ -17,10 +20,22 @@ const PatientForm: React.FC = () => {
   };
 
   return (
+    <div className='flex-row bg-white  justify-center py-6 rounded-xl'>
+      <div className=' ml-[34rem]'>
+      <Button onClick={onToggle} className=' margin-auto'>❌</Button>
+      </div>
+      <div className='my-3'>
+        <p className='text-[2.5rem] text-black text-center m-0'   >
+          Book an
+        </p>
+        <p className="text-[2.4rem] font-semibold text-black text-center m-0">
+          Appointment
+        </p>
+      </div>
     <Form
       form={form}
       onFinish={handleSubmit}
-      style={{ maxWidth: '500px', margin: 'auto', padding: 25, borderRadius: 13 }}
+      style={{ maxWidth: '500px', margin: 'auto', borderRadius: 13 }}
       className="bg-white flex-row"
       layout="vertical"
     >
@@ -29,7 +44,7 @@ const PatientForm: React.FC = () => {
         name="patientName"
         rules={[{ required: true, message: 'Please enter the patient name' }]}
       >
-        <Input placeholder="Patient Name" className="bg-white" />
+        <Input placeholder="Patient Name" className=" text-[1.1rem] p-3" />
       </Form.Item>
 
       <Form.Item
@@ -37,7 +52,7 @@ const PatientForm: React.FC = () => {
         name="email"
         rules={[{ required: true, type: 'email', message: 'Please enter a valid email' }]}
       >
-        <Input placeholder="Enter email" />
+        <Input placeholder="Enter email" className=" text-[1.1rem] p-3" />
       </Form.Item>
 
       <Form.Item
@@ -45,7 +60,7 @@ const PatientForm: React.FC = () => {
         name="country"
         rules={[{ required: true, message: 'Please enter your country' }]}
       >
-        <Input placeholder="Country" />
+        <Input placeholder="Country"  className=" text-[1.1rem] p-3"/>
       </Form.Item>
 
       <Form.Item
@@ -53,7 +68,7 @@ const PatientForm: React.FC = () => {
         name="city"
         rules={[{ required: true, message: 'Please enter your city' }]}
       >
-        <Input placeholder="City" />
+        <Input placeholder="City" className=" text-[1.1rem] p-3"/>
       </Form.Item>
 
       <Form.Item
@@ -61,7 +76,7 @@ const PatientForm: React.FC = () => {
         name="phoneNumber"
         rules={[{ required: true, message: 'Please enter your phone number' }]}
       >
-        <Input placeholder="Phone number" type="number" />
+        <Input placeholder="Phone number" type="number"  className="bg-white text-[1.1rem] p-3"/>
       </Form.Item>
 
       <Form.Item
@@ -69,15 +84,17 @@ const PatientForm: React.FC = () => {
         name="message"
         rules={[{ required: true, message: 'Please enter your message' }]}
       >
-        <TextArea placeholder="Describe the current medical problem" rows={4} />
+        <TextArea placeholder="Describe the current medical problem" rows={4} className='text-[1.1rem]' />
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="w-[100%]">
-          Send
+        <Button type="primary" htmlType="submit" className="w-[100%] text-[1.1rem] p-5 font-bold">
+          Submit
+        <VscSend size={20} color='white'/>
         </Button>
       </Form.Item>
     </Form>
+    </div>
   );
 };
 

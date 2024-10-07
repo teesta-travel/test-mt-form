@@ -50,8 +50,9 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-    position: 'sticky', 
+    position: 'fixed', 
     top: 0,
+    width: '100%',
   },
   logoContainer: {
     display: 'flex',
