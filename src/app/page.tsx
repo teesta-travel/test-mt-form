@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import PatientForm from './components/PateientForm';
 import 'antd/dist/reset.css'; 
 import Navbar from './components/navbar';
-import { Button } from 'antd';
+import { Alert, Button } from 'antd';
 import Footer from './components/Footer';
 import Image from 'next/image';
 
@@ -21,12 +21,14 @@ const Home: React.FC = () => {
 
   return (
   <>
-    <Navbar onToggle={handleToggle} />
+    <Navbar />
     {
       showForm && 
-      <div className='fixed min-w-[40rem] top-[7rem] left-1/3'>
-      <PatientForm onToggle={handleToggle} />
+      <div className="fixed inset-0 flex items-center justify-center top-15 z-10 max-w-[100vw]">
+      <div className="min-w-[40rem]">
+        <PatientForm onToggle={handleToggle} />
       </div>
+    </div>
     }
 
   <div style={{
@@ -40,27 +42,26 @@ const Home: React.FC = () => {
         flexDirection:'row',
         alignItems:'center'
     }}>
-    <div className='flex flex-col h-[50vh] w-[50vw] p-4'>
+    <div className='flex flex-col w-[50vw] p-4'>
 
-      <div>
-        <p className='text-2xl'>
+    <div className='flex items-center m-0'>
+      <p className='text-[1.5rem] m-0'>
         THE BEST MEDICAL CENTER
-        </p>
-      </div>
+      </p>
+    </div>
 
       <div className='flex flex-col justify-between mt-4'>
-        <p className='text-7xl font-extrabold m-1'>
+        <p className='text-[4rem] font-extrabold m-1'>
           Bringing health
         </p>
-        <p className='text-6xl font-thin m-1'> 
+        <p className='text-[3.75rem] font-thin m-1'> 
           to life for the whole family
         </p>
       </div>
 
       <div className='mt-6'>
-        <Button color="default" ghost className='p-7 text-xl'>
-          DISCOVER MORE
-        </Button>
+       
+      <Button ghost onClick={handleToggle} className='p-6 text-[1rem] font-semibold'>Book Appointment</Button>
       </div>
     </div>
   </div>
@@ -78,8 +79,7 @@ const Home: React.FC = () => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, maxime magni laudantium aperiam 
       </p>
       <Button type='default'
-        className='p-7 !text-blue-400 !border !border-sky-400 hover:!text-white hover:!bg-blue-500 font-semibold rounded-none '
-        >
+        className='p-7 !text-blue-400 !border !border-sky-400 hover:!text-white hover:!bg-blue-500 font-semibold rounded-none '>
         Learn More
       </Button>
 

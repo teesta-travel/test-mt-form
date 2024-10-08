@@ -1,8 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Form, Input, Button,Alert } from 'antd';
+import { Form, Input, Button } from 'antd';
 import { VscSend } from "react-icons/vsc";
+import db from '../FirebaseConfig.js';
+import { collection,addDoc } from 'firebase/firestore';
 
 
 const { TextArea } = Input;
@@ -12,11 +14,19 @@ interface PatientFormProps {
 
 const PatientForm: React.FC<PatientFormProps>= ( {onToggle}) => {
   const [form] = Form.useForm();
-  const handleSubmit = () => {
-    // Get form values
+
+  const handleSubmit = async () => {
     const data = form.getFieldsValue();
-    console.log(data);
-    <Alert message="Form submitted successfully" type="success" />;
+    // console.log(data);
+    try {
+      await addDoc(collection(db, "appointments"), data);
+      console.log('Data added successfully!');
+      onToggle();
+      form.resetFields();
+    } catch (error) 
+    {
+      console.error('Error adding document: ', error);
+    }
   };
 
   return (
