@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Teesta Health",
-  description: "Bringing health to life for the whole family",
+  title: "Teesta Health Care",
+  description: "Bringing health to life for the whole family 🏥",
 };
 
 export default function RootLayout({
