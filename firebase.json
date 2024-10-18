@@ -1,0 +1,14 @@
+{
+  "hosting": {
+    "site": "teesta",
+    "source": ".",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "frameworksBackend": {
+      "region": "asia-east1"
+    },
+    "github": {
+      "branch": "main",
+      "repo": "teesta-travel/test-mt-form"
+    }
+  }
+}
