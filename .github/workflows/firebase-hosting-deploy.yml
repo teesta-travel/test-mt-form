@@ -21,10 +21,12 @@ jobs:
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
 
-      - name: Authenticate with Firebase
-        run: firebase login:ci
-        env:
-          FIREBASE_TOKEN: "1//0g4JNuo9wUt-NCgYIARAAGBASNwF-L9IrBjxj_rJ-4g7mioX_7SWe6PlYZZd6YIjn5yPgYF1ZS78m1jnbrq6f8oJVbczbBiNJuAw"
+      # # - name: Authenticate with Firebase
+      # #   run: firebase login:ci
+      #   env:
+      #     FIREBASE_TOKEN: "1//0g4JNuo9wUt-NCgYIARAAGBASNwF-L9IrBjxj_rJ-4g7mioX_7SWe6PlYZZd6YIjn5yPgYF1ZS78m1jnbrq6f8oJVbczbBiNJuAw"
 
       - name: Deploy to Firebase Hosting
         run: firebase deploy --only hosting
+        env:
+          FIREBASE_TOKEN: 1//0g4JNuo9wUt-NCgYIARAAGBASNwF-L9IrBjxj_rJ-4g7mioX_7SWe6PlYZZd6YIjn5yPgYF1ZS78m1jnbrq6f8oJVbczbBiNJuAw
