@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import PatientForm from "./components/PateientForm";
 import "antd/dist/reset.css";
 import Navbar from "./components/navbar";
-import { Button } from "antd";
+import { Button, Modal } from "antd";
 import Footer from "./components/Footer";
 
 import { LuHeartPulse } from "react-icons/lu";
@@ -12,17 +12,40 @@ import { GiBrain, GiKneeCap, GiNoseFront } from "react-icons/gi";
 
 const Home: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleToggle = () => {
     setShowForm((prevState) => !prevState);
+    setIsModalOpen(true);
+  };
+  const handleCloseForm = () => {
+    setShowForm((prevState) => !prevState);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
   };
 
   return (
     <>
       <Navbar />
+
+      <Modal
+        title="Form Submitted!"
+        open={isModalOpen}
+        onOk={handleOk}
+        footer={[
+          <Button key="ok" type="primary" onClick={handleOk}>
+            OK
+          </Button>,
+        ]}>
+        <p>Thank You, We’ll get back to you soon!</p>
+      </Modal>
+
       {showForm && (
         <div className="fixed inset-0 flex items-center justify-center top-15 z-10 max-w-[100vw]">
           <div className="min-w-[40rem]">
-            <PatientForm onToggle={handleToggle} />
+            <PatientForm onToggle={handleToggle} onCancel={handleCloseForm} />
           </div>
         </div>
       )}
@@ -54,7 +77,9 @@ const Home: React.FC = () => {
           <div className="mt-6">
             <Button
               ghost
-              onClick={handleToggle}
+              onClick={() => {
+                setShowForm(true);
+              }}
               className="p-6 text-[1rem] font-semibold">
               Book Appointment
             </Button>

@@ -9,7 +9,7 @@ const Navbar: FC = () => {
       </div>
 
       <div className="flex items-center">
-        <p className="font-bold m-0 text-[1.1rem]">📞 +91-XXXXXXXXXX</p>
+        <p className="font-[600] m-0 text-[1.1rem]">📞 +919986012795</p>
       </div>
     </nav>
   );
@@ -19,7 +19,7 @@ const styles = {
   navbar: {
     zIndex: 1,
     backgroundColor: "white",
-    padding: "1.3rem",
+    padding: "1.1rem",
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
@@ -36,7 +36,7 @@ const styles = {
   logoText: {
     fontSize: "1.5rem",
     margin: 0,
-    marginLeft: "0.5rem",
+    marginLeft: "0.7rem",
     fontWeight: "bold",
   },
   navList: {

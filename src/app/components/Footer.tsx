@@ -17,10 +17,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <p className=" text-[#d6d6d6] py-5">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore.
-            </p>
+            <p className=" text-[#d6d6d6] py-5"></p>
 
             <ul className="text-white flex">
               <li className="p-2">
